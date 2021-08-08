@@ -1,0 +1,63 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
+/>
+
+<script>let importedData;let count=0;let vodUrl;let vodOffset;let firstpull;importedData=[{"pull":1,"phase":"Twintania","type":"Fire Puddle","causee":"Lyanna Dawncrest","affected":"-","time":"1:38","vod":323048},{"pull":1,"phase":"Heavensfall Trio","type":"Hypernova Puddle","causee":"Dog Loki","affected":"-","time":"9:23","vod":788356},{"pull":1,"phase":"Heavensfall Trio","type":"Thermionic Burst","causee":"Dusty Brown","affected":"-","time":"9:24","vod":789739},{"pull":1,"phase":"Nael","type":"Thunder","causee":"Dog Loki","affected":"Kyras Lytrae, Rhel'ir Tayuun, Kako Sol","time":"3:60","vod":464781},{"pull":2,"phase":"Twintania","type":"Hatch","causee":"Wilco Qhwic","affected":"-","time":"2:06","vod":1003174},{"pull":3,"phase":"Twintania","type":"Hatch","causee":"Lyanna Dawncrest","affected":"-","time":"2:23","vod":1599299},{"pull":3,"phase":"Twintania","type":"Hatch","causee":"Rhel'ir Tayuun","affected":"-","time":"2:24","vod":1599433},{"pull":4,"phase":"Twintania","type":"Fire Puddle","causee":"Dusty Brown","affected":"-","time":"2:30","vod":1796351},{"pull":4,"phase":"Nael","type":"Dragon Dive","causee":"Rhel'ir Tayuun","affected":"-","time":"5:10","vod":1957058},{"pull":4,"phase":"Nael","type":"Dragon Dive","causee":"Kako Sol","affected":"-","time":"5:10","vod":1957192},{"pull":4,"phase":"Nael","type":"Lunar Dynamo","causee":"Rhel'ir Tayuun","affected":"-","time":"5:46","vod":1992307},{"pull":5,"phase":"Nael","type":"Iron Chariot","causee":"Dog Loki","affected":"-","time":"3:10","vod":2227276},{"pull":5,"phase":"Nael","type":"Iron Chariot","causee":"Rhel'ir Tayuun","affected":"-","time":"4:12","vod":2289031},{"pull":5,"phase":"Nael","type":"Lunar Dynamo","causee":"Dusty Brown","affected":"-","time":"5:36","vod":2372806},{"pull":5,"phase":"Quickmarch Trio","type":"Dragon Dive","causee":"Dusty Brown","affected":"-","time":"6:25","vod":2422000},{"pull":5,"phase":"Blackfire Trio","type":"Dragon Dive","causee":"Lyanna Dawncrest","affected":"-","time":"7:07","vod":2464011},{"pull":6,"phase":"Grand Octet","type":"Twister","causee":"Lyanna Dawncrest","affected":"-","time":"10:49","vod":3245541},{"pull":6,"phase":"Grand Octet","type":"Twister","causee":"Nytouz Kamado","affected":"-","time":"10:49","vod":3245541},{"pull":6,"phase":"Grand Octet","type":"Twister","causee":"Dog Loki","affected":"-","time":"10:54","vod":3250172},{"pull":6,"phase":"Grand Octet","type":"Dragon Dive","causee":"Wilco Qhwic","affected":"-","time":"10:23","vod":3219001},{"pull":6,"phase":"Grand Octet","type":"Dragon Dive","causee":"Nytouz Kamado","affected":"-","time":"10:49","vod":3244783},{"pull":8,"phase":"Adds","type":"Twister","causee":"Dog Loki","affected":"-","time":"12:17","vod":4109738},{"pull":8,"phase":"Nael","type":"Iron Chariot","causee":"Rhel'ir Tayuun","affected":"-","time":"4:22","vod":3634674},{"pull":8,"phase":"Nael","type":"Iron Chariot","causee":"Kako Sol","affected":"-","time":"4:22","vod":3634809},{"pull":8,"phase":"Nael","type":"Dragon Dive","causee":"Wilco Qhwic","affected":"-","time":"5:08","vod":3680411},{"pull":8,"phase":"Nael","type":"Dragon Dive","causee":"Nytouz Kamado","affected":"-","time":"5:08","vod":3680545},{"pull":8,"phase":"Grand Octet","type":"Dragon Dive","causee":"Dusty Brown","affected":"-","time":"11:35","vod":4067563},{"pull":8,"phase":"Grand Octet","type":"Dragon Dive","causee":"Nytouz Kamado","affected":"-","time":"11:35","vod":4067697},{"pull":8,"phase":"Adds","type":"Iron Chariot","causee":"Dusty Brown","affected":"-","time":"12:27","vod":4120080},{"pull":8,"phase":"Adds","type":"Iron Chariot","causee":"Rhel'ir Tayuun","affected":"-","time":"12:27","vod":4120214},{"pull":8,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Rhel'ir Tayuun","affected":"-","time":"10:21","vod":3993857},{"pull":8,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Dusty Brown","affected":"-","time":"10:21","vod":3993990},{"pull":9,"phase":"Nael","type":"Iron Chariot","causee":"Kako Sol","affected":"-","time":"3:51","vod":4467673},{"pull":9,"phase":"Nael","type":"Dragon Dive","causee":"Kyras Lytrae","affected":"-","time":"5:14","vod":4550736},{"pull":9,"phase":"Nael","type":"Dragon Dive","causee":"Dog Loki","affected":"-","time":"5:14","vod":4550869},{"pull":9,"phase":"Tenstrike Trio","type":"Hatch","causee":"Kyras Lytrae","affected":"-","time":"10:11","vod":4847850},{"pull":10,"phase":"Nael","type":"Iron Chariot","causee":"Rhel'ir Tayuun","affected":"-","time":"3:47","vod":5155818},{"pull":10,"phase":"Heavensfall Trio","type":"Hypernova Puddle","causee":"Lyanna Dawncrest","affected":"-","time":"8:47","vod":5456036},{"pull":10,"phase":"Heavensfall Trio","type":"Missed Tower","causee":"Kako Sol","affected":"-","time":"8:40","vod":5448678},{"pull":11,"phase":"Adds","type":"Twister","causee":"Dusty Brown","affected":"-","time":"12:01","vod":6235173},{"pull":11,"phase":"Adds","type":"Twister","causee":"Dog Loki","affected":"-","time":"12:18","vod":6251604},{"pull":11,"phase":"Nael","type":"Lunar Dynamo","causee":"Kyras Lytrae","affected":"-","time":"3:09","vod":5702212},{"pull":11,"phase":"Nael","type":"Iron Chariot","causee":"Rhel'ir Tayuun","affected":"-","time":"3:11","vod":5705110},{"pull":11,"phase":"Grand Octet","type":"Dragon Dive","causee":"Wilco Qhwic","affected":"-","time":"11:19","vod":6192957},{"pull":11,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Dusty Brown","affected":"-","time":"10:10","vod":6124201},{"pull":13,"phase":"Grand Octet","type":"Twister","causee":"Lyanna Dawncrest","affected":"-","time":"11:19","vod":7777185},{"pull":13,"phase":"Nael","type":"Thermionic Burst","causee":"Wilco Qhwic","affected":"-","time":"2:38","vod":7256104},{"pull":13,"phase":"Nael","type":"Iron Chariot","causee":"Rhel'ir Tayuun","affected":"-","time":"4:12","vod":7350271},{"pull":13,"phase":"Nael","type":"Dragon Dive","causee":"Dusty Brown","affected":"-","time":"4:58","vod":7396033},{"pull":13,"phase":"Grand Octet","type":"Dragon Dive","causee":"Rhel'ir Tayuun","affected":"-","time":"11:18","vod":7776428},{"pull":13,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Rhel'ir Tayuun","affected":"-","time":"10:04","vod":7702442},{"pull":13,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Dusty Brown","affected":"-","time":"10:04","vod":7702575},{"pull":13,"phase":"Adds","type":"Hatch","causee":"Rhel'ir Tayuun","affected":"-","time":"13:00","vod":7878920},{"pull":14,"phase":"Nael","type":"Dragon Dive","causee":"Nytouz Kamado","affected":"-","time":"4:55","vod":8629276},{"pull":14,"phase":"Nael","type":"Dragon Dive","causee":"Rhel'ir Tayuun","affected":"-","time":"4:55","vod":8629409},{"pull":14,"phase":"Nael","type":"Dragon Dive","causee":"Kako Sol","affected":"-","time":"4:56","vod":8629543},{"pull":14,"phase":"Nael","type":"Dragon Dive","causee":"Dusty Brown","affected":"-","time":"4:56","vod":8629678},{"pull":14,"phase":"Nael","type":"Dragon Dive","causee":"Dog Loki","affected":"-","time":"4:56","vod":8629809},{"pull":14,"phase":"Nael","type":"Dragon Dive","causee":"Kyras Lytrae","affected":"-","time":"4:56","vod":8629944},{"pull":15,"phase":"Twintania","type":"Twister","causee":"Nytouz Kamado","affected":"-","time":"0:14","vod":8721004},{"pull":16,"phase":"Heavensfall Trio","type":"Thermionic Burst","causee":"Dog Loki","affected":"-","time":"8:49","vod":9315967},{"pull":16,"phase":"Heavensfall Trio","type":"Thermionic Burst","causee":"Lyanna Dawncrest","affected":"-","time":"8:51","vod":9317573},{"pull":16,"phase":"Heavensfall Trio","type":"Missed Tower","causee":"Dog Loki","affected":"-","time":"8:44","vod":9310489},{"pull":17,"phase":"Adds","type":"Twister","causee":"Nytouz Kamado","affected":"-","time":"13:05","vod":10158179},{"pull":17,"phase":"Grand Octet","type":"Dragon Dive","causee":"Lyanna Dawncrest","affected":"-","time":"10:48","vod":10020647},{"pull":17,"phase":"Grand Octet","type":"Dragon Dive","causee":"Wilco Qhwic","affected":"-","time":"10:59","vod":10031755},{"pull":17,"phase":"Adds","type":"Iron Chariot","causee":"Dusty Brown","affected":"-","time":"11:51","vod":10083882},{"pull":17,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Lyanna Dawncrest","affected":"-","time":"9:50","vod":9962806},{"pull":18,"phase":"Nael","type":"Dragon Dive","causee":"Wilco Qhwic","affected":"-","time":"5:02","vod":10578001},{"pull":18,"phase":"Heavensfall Trio","type":"Thermionic Burst","causee":"Dusty Brown","affected":"-","time":"8:50","vod":10805568},{"pull":18,"phase":"Grand Octet","type":"Dragon Dive","causee":"Rhel'ir Tayuun","affected":"-","time":"10:47","vod":10922265},{"pull":18,"phase":"Grand Octet","type":"Dragon Dive","causee":"Kako Sol","affected":"-","time":"10:47","vod":10922398},{"pull":18,"phase":"Grand Octet","type":"Dragon Dive","causee":"Lyanna Dawncrest","affected":"-","time":"10:47","vod":10922530},{"pull":18,"phase":"Grand Octet","type":"Dragon Dive","causee":"Dog Loki","affected":"-","time":"10:47","vod":10922664},{"pull":18,"phase":"Grand Octet","type":"Dragon Dive","causee":"Dusty Brown","affected":"-","time":"10:47","vod":10922798},{"pull":18,"phase":"Grand Octet","type":"Dragon Dive","causee":"Nytouz Kamado","affected":"-","time":"10:47","vod":10922932},{"pull":18,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Dog Loki","affected":"-","time":"9:46","vod":10861467},{"pull":18,"phase":"Tenstrike Trio","type":"Earth Shaker","causee":"Dusty Brown","affected":"-","time":"9:46","vod":10861600}];function addToTable(elem){let newRow=$('<tr></tr>');Object.entries(elem).forEach(entry=>{const[key,value]=entry;let newItem;if(key=='vod'){let vodms=(vodOffset+value);link=vodUrl+'?t='+millisToMinutesAndSeconds(vodms);link='<a href="'+link+'"target="_blank">VOD</a>';newItem=$('<td>'+link+'</td>')}else{newItem=$('<td>'+value+'</td>')}newRow.append(newItem)});$("#example").append(newRow)}function millisToMinutesAndSeconds(ms){var seconds=ms/1000;var hours=parseInt(seconds/3600);seconds=seconds%3600;var minutes=parseInt(seconds/60);seconds=seconds%60;seconds=seconds.toFixed(0);return hours+"h"+minutes+"m"+seconds+"s"}$(function(){$("#btnAddtoList").click(initTables)});function initTables(){vodUrl=$("#url").val();vodOffset=Date.parse("1970-01-01T00:"+$("#minOffset").val()+"Z");console.log(vodUrl+" offset: "+vodOffset);importedData.forEach((element)=>{addToTable(element)});$('#example').DataTable({"paging":false,"info":false,initComplete:function(){this.api().columns([0,1,2,3]).every(function(){var column=this;var newtargetcol=$('<th></th>');$('#filtertablerow').append(newtargetcol);var select=$('<select><option value=""></option></select>').appendTo($(newtargetcol)).on('change',function(){var val=$.fn.dataTable.util.escapeRegex($(this).val());column.search(val?'^'+val+'$':'',true,false).draw()});column.data().unique().sort().each(function(d,j){select.append('<option value="'+d+'">'+d+'</option>')})})}})}$(document).ready(function(){initTables()});</script>
+
+<style>
+  #example_filter{
+    float: left;
+  }
+  #example{
+    float: left;
+  }
+
+</style>
+
+
+
+<form>
+  <label for="fname">Vod URL:</label><br />
+  <input type="text" id="url" name="url" value="https://www.twitch.tv/videos/1110117347" /><br />
+  <label for="lname">first pull in mm:ss</label><br />
+  <input type="text" id="minOffset" name="lname" value="01:10" /><br /><br />
+</form>
+
+
+<table id="filters" class="display" style="width: 50%">
+  <thead>
+    <tr>
+      <th>Pull</th>
+      <th>Phase</th>
+      <th>Type</th>
+      <th>Causee</th>
+    </tr>
+  </thead>
+  <tbody id="filtertablebody">
+    <tr id = filtertablerow>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<table id="example" class="display" style="width: 50%">
+  <thead>
+    <tr>
+      <th>Pull</th>
+      <th>Phase</th>
+      <th>Type</th>
+      <th>Causee</th>
+      <th>Affected</th>
+      <th>Time</th>
+      <th>Vod</th>
+    </tr>
+  </thead>
+  <tbody id="tablebody"></tbody>
+</table>
+
+
